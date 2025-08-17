@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Portfolio page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Inengiye Emmanuel</h1>
+        <nav>
+            <ul>
+                <li><a href=#hero>Home</a></li>
+                <li><a href=#about>About</a></li>
+                <li><a href=#projects>Projects</a></li>
+                <li><a href=#contact>Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Hi, I'm Inengiye Emmanuel</h1>
+        <p>I am a Backend App developer. I also do full-stack web development. I am fluent
+            in languages such as HTML, CSS, JavaScript, Golang, React.js, React native, flutter etc. I hope to work in
+            Google some day as a software developer. I have hands on experience in web development and App development
+            considering I have done multiple projects on both front-end and back-end of websites, web apps and mobile
+            apps.</p>
+
+        <img id="my-picture" src="my%20profile%20pic.jpg" width="150" height="300">
+
+        <div class="clr"></div>
+
+        <a href="main cv 1.pdf" download
+            style="display: inline-block; padding: 10px; background-color: #007BFF; color: #fff; text-decoration: none; border-radius: 5-px;">Download
+            Resume</a>
+    </section>
+    <br>
+    <section class="about">
+        <div class="about-me">
+            <h1>About me</h1>
+            <p>I am a skilled backend app developer with strong experience in designing and implementing server-side
+                architectures, creating APIs, and managing databases. My expertise lies in languages like Golang and
+                Python,
+                where I build efficient, secure, and scalable solutions. I have experience working with relational
+                databases
+                (PostgreSQL, MySQL) and NoSQL databases (MongoDB). My education in Mechatronics Engineering has provided
+                a
+                solid foundation in software development, electronics, and systems integration, enhancing my
+                understanding
+                of complex backend operations. During my internships and work experience, I have collaborated with
+                cross-functional teams, contributed to large-scale projects, and successfully delivered backend
+                solutions
+                that streamline processes, improve system performance, and meet client requirements.</p>
+        </div>
+
+
+        <div class="skills">
+            <h3>Skills</h3>
+            <ol>
+                <li>API development</li>
+                <li>Database Management</li>
+                <li>Server-side Programming</li>
+                <li>Cloud computing</li>
+                <li>Microservices Architecture</li>
+                <li>Authentication and securityt</li>
+            </ol>
+        </div>
+
+        <div class="programming-languages">
+            <h3>Programming languages and frameworks</h3>
+            <ol>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Golang</li>
+            </ol>
+        </div>
+
+    </section>
+    <br>
+    <section class="projects">
+        <h1>My Projects</h1>
+        <div class="card-container">
+            <div class="card">
+                <h3>Inventory Management system</h3>
+                <p>The Inventory Management System API is a backend project designed to streamline the process of
+                    tracking and managing inventory for businesses. It is built using Golang and utilizes a PostgreSQL
+                    database for efficient data storage. The API allows users to perform CRUD (Create, Read, Update,
+                    Delete) operations on products, categories, and stock levels. Key features include:
+
+                    User Authentication: Secure login and registration using JWT tokens.
+                    Inventory Tracking: Real-time updates for product stock levels.
+                    Data Analytics: Generates reports on sales, restocking needs, and product trends.
+                    API Documentation: Comprehensive API documentation using Swagger for easy integration with frontend
+                    applications.
+                    This project demonstrates proficiency in API development, database management, and implementing
+                    secure, scalable backend systems.</p>
+            </div>
+            <div class="card">
+                <h3>Smart Home Control App</h3>
+                <p>The Smart Home Control App is a mobile application developed to provide users with an intuitive
+                    interface for managing their smart home devices. Built using React Native for a cross-platform
+                    experience (iOS and Android), the app connects to a backend server implemented in Golang for
+                    handling device communication and user data.
+
+                    Key Features:
+
+                    Device Control: Users can turn on/off lights, adjust thermostats, and manage other connected devices
+                    from the app.
+                    User Authentication: Secure login with OAuth integration for personalized access.
+                    Real-Time Updates: Uses WebSocket connections for instant updates on device statuses.
+                    Voice Commands: Supports voice control through integration with virtual assistants like Google
+                    Assistant.
+                    Activity Logs: Tracks and displays a history of user actions for security and monitoring.
+                    This project showcases skills in full-stack mobile app development, backend API integration,
+                    real-time data handling, and user interface design.</p>
+            </div>
+            <div class="card">
+                <h3>Expense Tracker App</h3>
+                <p>The Expense Tracker App is a mobile application designed to help users manage their personal finances
+                    effectively. Developed using Flutter, the app provides a seamless experience across both iOS and
+                    Android platforms. It connects to a Golang backend for secure data processing and storage, utilizing
+                    a cloud-based database (Firebase) for real-time syncing.
+
+                    Key Features:
+
+                    Budgeting: Users can set monthly budgets and track expenses by category (e.g., Food, Transport,
+                    Utilities).
+                    Expense Insights: Visual charts and analytics to help users understand their spending patterns.
+                    Data Synchronization: Real-time syncing of user data across multiple devices.
+                    Multi-Currency Support: Allows tracking of expenses in different currencies for international users.
+                    Secure Data: User data is protected with encryption and secure authentication (OAuth).
+                    This project highlights expertise in cross-platform app development, backend integration, real-time
+                    data handling, and financial analytics.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="contact-form">
+            <h1>Get In Touch</h1>
+            <form>
+                <fieldset>
+                    <legend>Contact</legend>
+                    <label>Name</label><br>
+                    <input type="text" name="name" required>
+                    <br>
+                    <label>Email</label><br>
+                    <input type="email" name="email" required>
+                    <br>
+                    <label>Message</label><br>
+                    <div class="message-container">
+                        <textarea name="message" required></textarea>
+                    </div>
+                </fieldset>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
