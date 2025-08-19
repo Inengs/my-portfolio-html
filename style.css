@@ -17,14 +17,114 @@
         --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
 
+    /* 1) PAGE BACKGROUND WITH TOP-CENTER "LIGHT" */
     html,
     body {
         height: 100%;
     }
 
     body {
-        background: --blue-darker;
+        background-color: var(--blue-darker);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     }
+
+    /* 2) HEADER: LEFT (LOGO-NAME), CENTER (NAV), RIGHT (CTA) */
+    #my-logo {
+        height: auto;
+        width: 20px;
+    }
+
+    .logo-name {
+        display: flex;
+        /* activate flexbox */
+        align-items: center;
+        /* vertically center items */
+        gap: 8px;
+    }
+
+    #logo-text {
+        color: var(--ink);
+        font-weight: 700;
+        font-size: 12px;
+    }
+
+
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
+
+    #header-inner {
+        display: flex;
+        /* activate flexbox */
+        align-items: center;
+        /* make sure they are side by side */
+        justify-content: space-between;
+        /* let them have equal spacing between them */
+        padding: 14px clamp(16px, 4vw, 40px);
+        /* top and bottom padding */
+        max-width: 1200px;
+        /* set up a maximum width */
+        margin: 0 auto;
+    }
+
+    #nav-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        /* remove bullets */
+        gap: clamp(16px, 4vw, 36px);
+        /* space between items */
+        padding: 6px 16px;
+        margin: 0;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 80px;
+    }
+
+    #nav-list li a {
+        display: flex;
+        /* maked the lind itself a flexbox */
+        align-items: center;
+        /* centers text vertically */
+        justify-content: center;
+        /* centers text horizontally */
+        color: var(--ink-dim);
+        text-decoration: none;
+        /* remove underline */
+        font-weight: 600;
+        font-size: 9px;
+        padding: 6px 12px;
+    }
+
+    #navbar {
+        display: flex;
+        /* faint lighter overlay */
+        justify-self: center;
+        align-items: center;
+    }
+
+    #cta {
+        justify-content: end;
+        align-items: center;
+    }
+
+    .email-btn {
+        text-decoration: none;
+        color: var(--ink);
+        font-size: 9px;
+        appearance: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+        padding: 10px 14px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* 3) HERO */
+    #smaller-text {}
 
     /* 
     body {

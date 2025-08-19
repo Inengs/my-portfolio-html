@@ -10,35 +10,36 @@
 
 <body>
     <header class="header">
-        <!-- logo + name -->
-        <div class="logo+name">
-            <img src="assets/my-logo.png" alt="my-logo">
-            <span>EMMANUEL INENGIYE</span>
+        <div id="header-inner">
+            <!-- logo + name -->
+            <div class="logo-name">
+                <img src="assets/my-logo.png" alt="my-logo" id="my-logo">
+                <span id="logo-text">Emmanuel Inengiye</span>
+            </div>
+
+            <!-- navigation bar -->
+            <nav id="navbar">
+                <ul id="nav-list">
+                    <li><a href=#hero class="nav-text">About Me</a></li>
+                    <li><a href=#about class="nav-text">Projects</a></li>
+                    <li><a href=#projects class="nav-text">Experiences</a></li>
+                    <li><a href=#testimonials class="nav-text">Testimonials</a></li>
+                    <li><a href=#faq class="nav-text">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <!-- get in touch -->
+            <div class="cta">
+                <a href="#contact" class="email-btn" aria-label="Get in touch">Get in Touch</a>
+            </div>
         </div>
 
-        <!-- navigation bar -->
-        <nav id="navbar">
-            <ul>
-                <li><a href=#hero>About Me</a></li>
-                <li><a href=#about>Projects</a></li>
-                <li><a href=#projects>Experiences</a></li>
-                <li><a href=#testimonials>Testimonials</a></li>
-                <li><a href=#faq>FAQ</a></li>
-            </ul>
-        </nav>
-
-        <div>
-            <a href="#contact" class="email-btn">Get in Touch</a>
-        </div>
     </header>
 
-    <section>
-        <h1>Hi, I'm Inengiye Emmanuel</h1>
-        <p>I am a Backend App developer. I also do full-stack web development. I am fluent
-            in languages such as HTML, CSS, JavaScript, Golang, React.js, React native, flutter etc. I hope to work in
-            Google some day as a software developer. I have hands on experience in web development and App development
-            considering I have done multiple projects on both front-end and back-end of websites, web apps and mobile
-            apps.</p>
+    <section class="hero" id="about" aria-labelledby="intro-title">
+        <p id="smaller-text">Welcome to</p>
+        <p id="first-big-text">Emmanuel, Full-stack Developer</p>
+        <p id="second-big-text">Based in Nigeria</p>
 
         <a href="main cv 1.pdf" download
             style="display: inline-block; padding: 10px; background-color: #007BFF; color: #fff; text-decoration: none; border-radius: 5-px;">Download
