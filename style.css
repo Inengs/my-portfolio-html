@@ -23,9 +23,35 @@
         height: 100%;
     }
 
+    /* All sizes include padding & border */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    /* Let text scale with user settings */
+    html {
+        font-size: 100%;
+    }
+
+    /* 1rem ≈ browser default (usually 16px) */
+
+    img,
+    video {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* media fits containers */
+
+
     body {
         background-color: var(--blue-darker);
         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        line-height: 1.5;
+        overflow-x: hidden;
     }
 
     /* 2) HEADER: LEFT (LOGO-NAME), CENTER (NAV), RIGHT (CTA) */
@@ -124,7 +150,97 @@
     }
 
     /* 3) HERO */
-    #smaller-text {}
+    #first-big-text,
+    #second-big-text {
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        /* min, preferred, max */
+        font-weight: bold;
+        text-align: center;
+        /* better than flex for text */
+        color: var(--ink);
+        margin: 12px 0 0;
+    }
+
+    #smaller-text {
+        font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+        text-align: center;
+        color: var(--ink);
+    }
+
+
+    #download-button {
+        display: flex;
+        justify-content: center;
+        margin: 50px 0px 0px 0px;
+    }
+
+    #download-resume {
+        display: inline-block;
+        padding: 10px;
+        color: var(--ink);
+        background-color: var(--accent);
+        text-decoration: none;
+        border-radius: 5-px;
+        align-items: center;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .email-btn,
+    #download-resume {
+        font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+        padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 18px);
+    }
+
+
+    .hero {
+        padding: clamp(40px, 1.5vw, 120px) 16px;
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        #header-inner {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .logo-name {
+            justify-content: center;
+        }
+
+        .cta {
+            margin-top: 8px;
+        }
+    }
+
+    /* Mobile view */
+    @media (max-width: 768px) {
+        #navbar {
+            display: none;
+            /* hide menu by default */
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: var(--blue-dark);
+            padding: 1rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        #navbar.active {
+            display: block;
+            /* show when active */
+        }
+
+        .hamburger {
+            display: block;
+            /* visible on mobile */
+        }
+    }
+
+    #about {}
+
 
     /* 
     body {
