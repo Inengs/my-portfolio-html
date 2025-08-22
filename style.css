@@ -97,8 +97,6 @@
 
     #nav-list {
         display: flex;
-        /* align-items: center; */
-        /* justify-content: center; */
         list-style: none;
         /* remove bullets */
         gap: clamp(16px, 4vw, 36px);
@@ -126,9 +124,6 @@
 
     nav {
         display: flex;
-        /* faint lighter overlay */
-        /* justify-self: center; */
-        /* align-items: center; */
     }
 
     #cta {
@@ -191,8 +186,6 @@
         padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 18px);
     }
 
-
-    /* the Welcome to part */
     .hero {
         max-width: 1100px;
         margin: 0 auto;
@@ -298,6 +291,7 @@
     .slider-title {
         font-size: clamp(18px, 2.6vw, 22px);
         opacity: 0.95;
+        color: white;
     }
 
     .track {
