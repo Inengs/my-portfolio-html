@@ -2,112 +2,152 @@
 <html>
 
 <head>
-    <title>My Portfolio page</title>
+    <title>InengsDev</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./assets/my-logo.png">
 </head>
 
 <body>
-    <header class="header">
-        <div id="header-inner">
-            <!-- logo + name -->
-            <div class="logo-name">
-                <img src="assets/my-logo.png" alt="my-logo" id="my-logo">
-                <span id="logo-text">Emmanuel Inengiye</span>
-            </div>
+    <section class="home">
+        <header class="header">
+            <div id="header-inner">
+                <!-- logo + name -->
+                <div class="logo-name">
+                    <img src="assets/my-logo.png" alt="my-logo" id="my-logo">
+                    <span id="logo-text">Emmanuel Inengiye</span>
+                </div>
 
-            <!-- navigation bar -->
-            <nav id="navbar">
-                <!-- <div class="hamburger">
+                <!-- navigation bar -->
+                <nav id="navbar">
+                    <!-- <div class="hamburger">
                     ☰
                 </div> -->
-                <ul id="nav-list">
-                    <li><a href=#hero class="nav-text">About Me</a></li>
-                    <li><a href=#about class="nav-text">Projects</a></li>
-                    <li><a href=#projects class="nav-text">Experiences</a></li>
-                    <li><a href=#testimonials class="nav-text">Testimonials</a></li>
-                    <li><a href=#faq class="nav-text">FAQ</a></li>
-                </ul>
-            </nav>
+                    <ul id="nav-list">
+                        <li><a href=#about class="nav-text">About Me</a></li>
+                        <li><a href=#projects class="nav-text">Projects</a></li>
+                        <li><a href=#experiences class="nav-text">Experiences</a></li>
+                        <li><a href=#testimonials class="nav-text">Testimonials</a></li>
+                        <li><a href=#faq class="nav-text">FAQ</a></li>
+                    </ul>
+                </nav>
 
-            <!-- get in touch -->
-            <div class="cta">
-                <a href="#contact" class="email-btn" aria-label="Get in touch">Get in Touch</a>
+                <!-- get in touch -->
+                <div class="cta">
+                    <a href="#contact" class="email-btn" aria-label="Get in touch">Get in Touch</a>
+                </div>
             </div>
-        </div>
 
-    </header>
+        </header>
 
-    <!-- Hero -->
-    <section class="hero" id="about" aria-labelledby="intro-title">
-        <div>
-            <p id="smaller-text">Welcome to</p>
-            <p id="first-big-text">Emmanuel, Full-stack Developer</p>
-            <p id="second-big-text">Based in Nigeria</p>
-        </div>
+        <!-- Hero -->
+        <section class="hero" aria-labelledby="intro-title">
+            <div>
+                <p id="smaller-text">Welcome to</p>
+                <p id="first-big-text">Emmanuel, Full-stack Developer</p>
+                <p id="second-big-text">Based in Nigeria</p>
+            </div>
 
 
-        <div id="download-button">
-            <a href="https://drive.google.com/uc?export=download&id=1_blyUnAUjiAvcrskccHojz6M_GS--nxf" download
-                id="download-resume">Download Resume</a>
-        </div>
+            <div id="download-button">
+                <a href="https://drive.google.com/uc?export=download&id=1_blyUnAUjiAvcrskccHojz6M_GS--nxf" download
+                    id="download-resume">Download Resume</a>
+            </div>
+        </section>
+
+        <!-- PROJECTS SLIDER AT THE BOTTOM OF HOME -->
+        <section class="projects" id="projects" aria-labelledby="projects-title">
+            <div class="slider-head">
+                <h2 class="slider-title" id="projects-title">Featured Projects</h2>
+                <div class="controls">
+                    <button class="ctrl prev" aria-label="Previous slide" title="Previous">‹</button>
+                    <button class="ctrl next" aria-label="Next slide" title="Next">›</button>
+                </div>
+            </div>
+
+            <div class="track" role="region" aria-roledescription="carousel" aria-label="Projects Carousel"
+                tabindex="0">
+                <article class="card" aria-label="Project 1" id="Project 1">
+                    <img src="./assets/weather app.jpg" alt="ScreenShot of Project 1">
+                    <h3>WeatherNow</h3>
+                    <p>Minimal weather app.</p>
+                    <a href="#" target="_blank" rel="noopener">View Project</a>
+                </article>
+
+                <article class="card" aria-label="Project 2" id="Project 2">
+                    <img src="./assets/books directory.jpg" alt="ScreenShot of Project 2">
+                    <h3>Books Directory</h3>
+                    <p>CRUD app with Express + MongoDB and responsive UI.</p>
+                    <a href="https://my-books-directory-app.onrender.com/" target="_blank" rel="noopener">View
+                        Project</a>
+                </article>
+
+                <article class="card" aria-label="Project 3" id="Project 3">
+                    <img src="./assets/smart gate.jpg" alt="ScreenShot of Project 3">
+                    <h3>Smart Gate Console</h3>
+                    <p>React Native controller for ANPR-enabled gate system.</p>
+                    <a href="https://drive.google.com/uc?export=download&id=10Ujwi_uDs_Lqlb2G_ll1bY_f_5mYy5TM"
+                        target="_blank" rel="noopener">Download App</a>
+                </article>
+
+                <article class="card" aria-label="Project 1" id="Project 1">
+                    <img src="./assets/to do list.jpg" alt="ScreenShot of Project 1">
+                    <h3>TaskFlow</h3>
+                    <p>Realtime Kanban with Golang + WebSockets + JWT</p>
+                    <a href="#" target="_blank" rel="noopener">View Project</a>
+                </article>
+
+            </div>
+        </section>
     </section>
 
-    <!-- PROJECTS SLIDER AT THE BOTTOM OF HOME -->
-    <section class="projects" id="projects" aria-labelledby="projects-title">
-        <div class="slider-head">
-            <h2 class="slider-title" id="projects-title">Featured Projects</h2>
-            <div class="controls">
-                <button class="ctrl prev" aria-label="Previous slide" title="Previous">‹</button>
-                <button class="ctrl next" aria-label="Next slide" title="Next">›</button>
-            </div>
-        </div>
-
-        <div class="track" role="region" aria-roledescription="carousel" aria-label="Projects Carousel" tabindex="0">
-            <article class="card" aria-label="Project 1" id="Project 1">
-                <img src="./assets/weather app.jpg" alt="ScreenShot of Project 1">
-                <h3>WeatherNow</h3>
-                <p>Minimal weather app.</p>
-                <a href="#" target="_blank" rel="noopener">View Project</a>
-            </article>
-
-            <article class="card" aria-label="Project 2" id="Project 2">
-                <img src="./assets/books directory.jpg" alt="ScreenShot of Project 2">
-                <h3>Books Directory</h3>
-                <p>CRUD app with Express + MongoDB and responsive UI.</p>
-                <a href="https://my-books-directory-app.onrender.com/" target="_blank" rel="noopener">View Project</a>
-            </article>
-
-            <article class="card" aria-label="Project 3" id="Project 3">
-                <img src="./assets/smart gate.jpg" alt="ScreenShot of Project 3">
-                <h3>Smart Gate Console</h3>
-                <p>React Native controller for ANPR-enabled gate system.</p>
-                <a href="https://drive.google.com/uc?export=download&id=10Ujwi_uDs_Lqlb2G_ll1bY_f_5mYy5TM"
-                    target="_blank" rel="noopener">Download App</a>
-            </article>
-
-            <article class="card" aria-label="Project 1" id="Project 1">
-                <img src="https://picsum.photos/seed/p2/800/500" alt="ScreenShot of Project 1">
-                <h3>TaskFlow</h3>
-                <p>Realtime Kanban with Golang + WebSockets + JWT</p>
-                <a href="#" target="_blank" rel="noopener">View Project</a>
-            </article>
-
-        </div>
-    </section>
-
-    <br>
     <section class="about" id="about" aria-label="about page">
-        <div id="company-text" class="company-text">
-            <p id="join-text">Join 100+ companies who <br> worked with me</p>
+        <div id="company-text" class="top-third">
+            <p id="join-text">Let's Build Exciting Projects <br> Together</p>
 
-            <div></div>
+            <div class="project-types">
+                <div class="project-type">
+                    <img src="assets/react-original.svg" width="30" alt="Web applications icon">
+                    <span>Web Applications</span>
+                </div>
+                <div class="project-type">
+                    <img src="assets/website globe.svg" width="30" alt="Websites icon">
+                    <span>Websites</span>
+                </div>
+                <div class="project-type">
+                    <img src="assets/android-original.svg" width="30" alt="Mobile Apps icon">
+                    <span>Mobile Apps</span>
+                </div>
+                <div class="project-type">
+                    <img src="assets/API.svg" width="30" alt="APIs icon">
+                    <span>APIs and Backend Systems</span>
+                </div>
+
+                <div class="project-type">
+                    <img src="assets/UIUX.svg" width="30" alt="UI/UX icon">
+                    <span>UI/UX Design</span>
+                </div>
+
+            </div>
         </div>
 
-        <section id="half-section" class="half-section">
-            <p>Help companies build great products</p>
-            <p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
+        <section id="half-section" class="white-box">
+            <div class="left-section">
+                <h2>Help companies build great products</h2>
+            </div>
+            <div class="right-section">
+                <p>
+                    I am a self-taught developer based in Nigeria with experience in JavaScript projects. I am currently
+                    working towards becoming a full-stack developer, mastering technologies such as React, Node.js,
+                    Express, MongoDB, Next.js, and PostgreSQL.<br><br>
+
+                    I have a strong passion for building software—particularly websites, web applications, and mobile
+                    applications. I enjoy creating and bringing ideas to life, constantly learning new techniques to
+                    improve my craft. I stay up to date with the latest software innovations and frameworks, always
+                    seeking opportunities to sharpen my expertise and deliver better products.
+                </p>
+            </div>
         </section>
     </section>
 
@@ -118,14 +158,16 @@
             <div class="card">
                 <h3>Inventory Management system</h3>
                 <p>The Inventory Management System API is a backend project designed to streamline the process of
-                    tracking and managing inventory for businesses. It is built using Golang and utilizes a PostgreSQL
+                    tracking and managing inventory for businesses. It is built using Golang and utilizes a
+                    PostgreSQL
                     database for efficient data storage. The API allows users to perform CRUD (Create, Read, Update,
                     Delete) operations on products, categories, and stock levels. Key features include:
 
                     User Authentication: Secure login and registration using JWT tokens.
                     Inventory Tracking: Real-time updates for product stock levels.
                     Data Analytics: Generates reports on sales, restocking needs, and product trends.
-                    API Documentation: Comprehensive API documentation using Swagger for easy integration with frontend
+                    API Documentation: Comprehensive API documentation using Swagger for easy integration with
+                    frontend
                     applications.
                     This project demonstrates proficiency in API development, database management, and implementing
                     secure, scalable backend systems.</p>
@@ -139,7 +181,8 @@
 
                     Key Features:
 
-                    Device Control: Users can turn on/off lights, adjust thermostats, and manage other connected devices
+                    Device Control: Users can turn on/off lights, adjust thermostats, and manage other connected
+                    devices
                     from the app.
                     User Authentication: Secure login with OAuth integration for personalized access.
                     Real-Time Updates: Uses WebSocket connections for instant updates on device statuses.
@@ -151,9 +194,11 @@
             </div>
             <div class="card">
                 <h3>Expense Tracker App</h3>
-                <p>The Expense Tracker App is a mobile application designed to help users manage their personal finances
+                <p>The Expense Tracker App is a mobile application designed to help users manage their personal
+                    finances
                     effectively. Developed using Flutter, the app provides a seamless experience across both iOS and
-                    Android platforms. It connects to a Golang backend for secure data processing and storage, utilizing
+                    Android platforms. It connects to a Golang backend for secure data processing and storage,
+                    utilizing
                     a cloud-based database (Firebase) for real-time syncing.
 
                     Key Features:
@@ -162,9 +207,11 @@
                     Utilities).
                     Expense Insights: Visual charts and analytics to help users understand their spending patterns.
                     Data Synchronization: Real-time syncing of user data across multiple devices.
-                    Multi-Currency Support: Allows tracking of expenses in different currencies for international users.
+                    Multi-Currency Support: Allows tracking of expenses in different currencies for international
+                    users.
                     Secure Data: User data is protected with encryption and secure authentication (OAuth).
-                    This project highlights expertise in cross-platform app development, backend integration, real-time
+                    This project highlights expertise in cross-platform app development, backend integration,
+                    real-time
                     data handling, and financial analytics.</p>
             </div>
         </div>
@@ -192,6 +239,8 @@
             </form>
         </div>
     </section>
+
+    <script src="scripts.js"></script>
 </body>
 
 </html>

@@ -1,12 +1,13 @@
-document.querySelectorAll('nav a').forEach(anchor => {
+// this is to ensure smooth movement upon clicking of links in the navbar
+document.querySelectorAll('nav a').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+        e.preventDefault()
         const target = document.querySelector(this.getAttribute('href'));
         target.scrollIntoView({
             behaviour: 'smooth'
-        })
-    })
-})
+        });
+    });
+});
 
 
 const hamburger = document.getElementById("hamburger");
@@ -17,41 +18,50 @@ hamburger.addEventListener("click", () => {
 });
 
 
-// // Slider controls + optional autoplay
-// (function () {
-//     const track = document.querySelector('.track');
-//     const prev = document.querySelector('.prev');
-//     const next = document.querySelector('.next');
+// Auto-scrolling for projects slider
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.track');
+    const cards = document.querySelectorAll('.card');
+    const cardWidth = cards[0].offsetWidth + 16; // Card width + gap (16px from CSS)
+    let intervalId;
 
-//     function slide(direction = 1) {
-//         const card = track.querySelector('.card');
-//         if (!card) return;
-//         const gap = parseFloat(getComputedStyle(track).gap) || 16;
-//         const cardWidth = card.getBoundingClientRect().width + gap;
-//         track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
-//     }
+    // Function to scroll to the next card
+    function scrollNext() {
+        const maxScroll = track.scrollWidth - track.clientWidth; // Max scrollable distance
+        if (track.scrollLeft >= maxScroll - 1) { // Near the end
+            track.scrollTo({ left: 0, behavior: 'smooth' }); // Loop to start
+        } else {
+            track.scrollBy({ left: cardWidth, behavior: 'smooth' }); // Scroll to next card
+        }
+    }
 
-//     prev.addEventListener('click', () => slide(-1));
-//     next.addEventListener('click', () => slide(1));
+    // Start auto-scrolling every 5 seconds
+    function startAutoScroll() {
+        intervalId = setInterval(scrollNext, 5000); // Scroll every 5 seconds
+    }
 
-//     // Keyboard support on the carousel region
-//     track.addEventListener('keydown', (e) => {
-//         if (e.key === 'ArrowLeft') { e.preventDefault(); slide(-1); }
-//         if (e.key === 'ArrowRight') { e.preventDefault(); slide(1); }
-//     });
+    // Stop auto-scrolling
+    function stopAutoScroll() {
+        clearInterval(intervalId);
+    }
 
-//     // Autoplay (pause on hover/focus)
-//     let autoplay = setInterval(() => slide(1), 4500);
-//     function pause() { clearInterval(autoplay); autoplay = null; }
-//     function resume() { if (!autoplay) autoplay = setInterval(() => slide(1), 4500); }
+    // Start auto-scroll when page loads
+    startAutoScroll();
 
-//     track.addEventListener('mouseenter', pause);
-//     track.addEventListener('mouseleave', resume);
-//     track.addEventListener('focusin', pause);
-//     track.addEventListener('focusout', resume);
+    // Pause auto-scroll on hover
+    track.addEventListener('mouseenter', stopAutoScroll);
+    track.addEventListener('mouseleave', startAutoScroll);
 
-//     // Stop autoplay if user prefers reduced motion
-//     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-//     if (mq.matches) pause();
-//     mq.addEventListener?.('change', e => e.matches ? pause() : resume());
-// })();
+    // Manual controls for Previous and Next buttons
+    document.querySelector('.ctrl.next').addEventListener('click', () => {
+        stopAutoScroll(); // Pause auto-scroll on manual click
+        scrollNext();
+        startAutoScroll(); // Resume after click
+    });
+
+    document.querySelector('.ctrl.prev').addEventListener('click', () => {
+        stopAutoScroll(); // Pause auto-scroll on manual click
+        track.scrollBy({ left: -cardWidth, behavior: 'smooth' }); // Scroll to previous card
+        startAutoScroll(); // Resume after click
+    });
+});
