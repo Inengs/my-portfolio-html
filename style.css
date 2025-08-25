@@ -1,657 +1,1031 @@
-    /* main colour template */
-    :root {
-        --blue-dark: #0a1b3d;
-        /* page base */
-        --blue-darker: #071430;
-        /* vignette */
-        --blue-glow: #3a86ff;
-        /* “light” color */
-        --ink: #dfe7ff;
-        /* body text on dark */
-        --ink-dim: #b3c0e6;
-        /* Dimmed text color */
-        --accent: #61d0ff;
-        /* hover/active accents */
-        --card: rgba(255, 255, 255, 0.06);
-        /* card background */
-        --card-border: rgba(255, 255, 255, 0.14);
-        /* card border */
-        --radius: 16px;
-        /* border radius for elements */
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-        /* shadow for depth */
+/* Main color template */
+:root {
+    --blue-dark: #0a1b3d;
+    /* page base */
+    --blue-darker: #071430;
+    /* vignette */
+    --blue-glow: #3a86ff;
+    /* “light” color */
+    --ink: #dfe7ff;
+    /* body text on dark */
+    --ink-dim: #b3c0e6;
+    /* Dimmed text color */
+    --accent: #61d0ff;
+    /* hover/active accents */
+    --card: rgba(255, 255, 255, 0.06);
+    /* card background */
+    --card-border: rgba(255, 255, 255, 0.14);
+    /* card border */
+    --radius: 16px;
+    /* border radius for elements */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    /* shadow for depth */
+}
+
+/* Page background with top-center "light": Sets full height and hidden overflow for x-axis */
+html,
+body {
+    height: 100%;
+    /* full viewport height */
+    overflow-x: hidden;
+    /* Prevents horizontal scrolling */
+}
+
+/* Box sizing: Ensures padding and borders are included in element sizes */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* Includes padding/border in width/height */
+}
+
+/* Font size: Allows text to scale with user settings, base 100% (usually 16px) */
+html {
+    font-size: 100%;
+    /* Browser default font size */
+}
+
+/* Media elements: Ensures images/videos fit containers without overflowing */
+img,
+video {
+    max-width: 100%;
+    /* Max width to container */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: block;
+    /* Block display for better control */
+}
+
+/* Body styles: Sets background, font, line height, and overflow */
+body {
+    background-color: var(--blue-darker);
+    /* Dark background */
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* System font stack */
+    line-height: 1.5;
+    /* Comfortable line spacing */
+    overflow-x: hidden;
+    /* No horizontal overflow */
+}
+
+/* HOME section: First viewport, set to full height for one-page view */
+.home {
+    min-height: 100vh;
+    /* Ensure full vertical viewport coverage */
+}
+
+/* Logo image: Sets size for logo */
+#my-logo {
+    height: auto;
+    /* Maintain aspect */
+    width: 20px;
+    /* Fixed width */
+}
+
+/* Logo-name container: Flex for side-by-side alignment */
+.logo-name {
+    display: flex;
+    /* Flexbox activation */
+    align-items: center;
+    /* Vertically center items */
+    gap: 8px;
+    /* Space between logo and text */
+}
+
+/* Logo text: Styles for name text */
+#logo-text {
+    color: var(--ink);
+    /* Light text */
+    font-weight: 700;
+    /* Bold */
+    font-size: 12px;
+    /* Small size */
+}
+
+/* Header: Sticky at top for persistent navigation */
+header {
+    position: sticky;
+    /* Sticks to top on scroll */
+    top: 0;
+    /* Top of viewport */
+    z-index: 50;
+    /* Above other content */
+}
+
+/* Header inner: Flex for layout of logo, nav, cta */
+#header-inner {
+    display: flex;
+    /* Activate flexbox */
+    align-items: center;
+    /* Vertical alignment */
+    justify-content: space-between;
+    /* Equal spacing */
+    padding: 14px clamp(16px, 4vw, 40px);
+    /* Responsive padding */
+    max-width: 1200px;
+    /* Max width */
+    margin: 0 auto;
+    /* Center */
+}
+
+/* Nav list: Flex for horizontal links, styled as pill */
+#nav-list {
+    display: flex;
+    /* Horizontal list */
+    list-style: none;
+    /* No bullets */
+    gap: clamp(16px, 4vw, 36px);
+    /* Responsive gap */
+    padding: 6px 16px;
+    /* Inner padding */
+    margin: 0;
+    /* No margin */
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Semi-transparent bg */
+    border-radius: 80px;
+    /* Pill shape */
+}
+
+/* Nav links: Styles for each link */
+#nav-list li a {
+    display: flex;
+    /* Flex for centering */
+    align-items: center;
+    /* Centers text vertically */
+    justify-content: center;
+    /* Centers text horizontally */
+    color: var(--ink-dim);
+    /* Dim text */
+    text-decoration: none;
+    /* Remove underline */
+    font-weight: 600;
+    /* Semi-bold */
+    font-size: 9px;
+    /* Small font */
+    padding: 6px 12px;
+    /* Padding */
+}
+
+/* Nav container: Flex for alignment */
+nav {
+    display: flex;
+    /* Flexbox */
+}
+
+/* CTA container: Aligns to end */
+.cta {
+    justify-content: end;
+    /* Right align */
+    align-items: center;
+    /* Vertical center */
+}
+
+/* Email button: Styled button for CTA */
+.email-btn {
+    text-decoration: none;
+    /* No underline */
+    color: var(--ink);
+    /* Light text */
+    font-size: 9px;
+    /* Small font */
+    appearance: none;
+    /* Remove default styles */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Border */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    /* Gradient bg */
+    padding: 10px 14px;
+    /* Padding */
+    border-radius: 999px;
+    /* Rounded */
+    display: inline-flex;
+    /* Inline flex */
+    align-items: center;
+    /* Center */
+}
+
+/* Hero big texts: Responsive font sizes */
+#first-big-text,
+#second-big-text {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    /* Responsive: min 1.8rem, preferred 4vw, max 3rem */
+    font-weight: bold;
+    /* Bold */
+    text-align: center;
+    /* Center */
+    color: var(--ink);
+    /* Light text */
+}
+
+/* Smaller text: Responsive */
+#smaller-text {
+    font-size: clamp(0.9rem, 1.0vw, 1.2rem);
+    /* Responsive */
+    text-align: center;
+    /* Center */
+    color: var(--ink-dim);
+    /* Dim */
+}
+
+/* Download button container: Centers the button */
+#download-button {
+    display: flex;
+    /* Flex */
+    justify-content: center;
+    /* Center */
+    margin: 50px 0px 0px 0px;
+    /* Top margin */
+}
+
+/* Download resume link: Styled button */
+#download-resume {
+    display: inline-block;
+    /* Inline block */
+    padding: 10px;
+    /* Padding */
+    color: var(--ink);
+    /* Text */
+    background-color: var(--accent);
+    /* Accent bg */
+    text-decoration: none;
+    /* No underline */
+    align-items: center;
+    /* Center */
+    border-radius: 999px;
+    /* Rounded */
+    font-size: 12px;
+    /* Font */
+    font-weight: bold;
+    /* Bold */
+}
+
+/* Responsive button sizes: For email and download */
+.email-btn,
+#download-resume {
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+    /* Responsive */
+    padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 18px);
+    /* Responsive padding */
+}
+
+/* Hero container: Centered content with padding */
+.hero {
+    max-width: 1100px;
+    /* Max width */
+    margin: 0 auto;
+    /* Center */
+    padding: clamp(36px, 8vh, 80px) clamp(16px, 4vw, 40px) 40px;
+    /* Reduced top padding to fit viewport */
+    text-align: center;
+    /* Center text */
+    position: relative;
+    /* For ::before */
+    overflow: hidden;
+    /* Prevents light from spilling outside */
+}
+
+/* Hero light effect: Pseudo-element for torch beam */
+.hero::before {
+    content: "";
+    /* Required for pseudo-elements */
+    position: absolute;
+    /* Absolute positioning */
+    top: -50px;
+    /* Start above the hero section */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Adjust for centering */
+    width: 300px;
+    /* Width of the beam */
+    height: 200px;
+    /* Height of the beam */
+    background: radial-gradient(circle at center top, rgba(58, 134, 255, 0.5) 0%, transparent 70%);
+    /* Radial gradient for torch effect */
+    box-shadow: 0 0 50px rgba(58, 134, 255, 0.3);
+    /* Soft glow */
+    opacity: 0;
+    /* Start invisible */
+    animation: torch 2.5s ease-out forwards;
+    /* Run animation once */
+    z-index: 0;
+    /* Behind content */
+}
+
+/* Torch animation: Fades in and moves down */
+@keyframes torch {
+    0% {
+        opacity: 0;
+        /* Start faint */
+        transform: translateX(-50%) translateY(0);
+        /* Start higher */
     }
 
-    /* 1) PAGE BACKGROUND WITH TOP-CENTER "LIGHT": sets full height and hidden overflow for x-axis */
-    html,
-    body {
-        height: 100%;
-        /* full viewport height */
-        overflow-x: hidden;
-        /* Prevents horizontal scrolling */
+    100% {
+        opacity: 0.7;
+        /* Fade in */
+        transform: translateX(-50%) translateY(20px);
+        /* Move slightly downward */
+    }
+}
+
+/* Ensure hero content stays above the glow */
+.hero>* {
+    position: relative;
+    /* Keep content above the ::before layer */
+    z-index: 1;
+    /* Above the glow */
+}
+
+/* Hero paragraph */
+.hero p {
+    margin: 0 auto;
+    max-width: 750px;
+    color: var(--ink-dim);
+    font-size: clamp(14px, 2.2vw, 18px);
+}
+
+/* PROJECTS SLIDER: Bottom of home */
+.projects {
+    position: relative;
+    /* For fades */
+    margin: min(2vh, 20px) 0 0;
+    /* Reduced to minimize space */
+    padding: 12px 0 38px;
+    /* Padding */
+}
+
+/* Fade edges: For track overflow */
+.projects::before,
+.projects::after {
+    content: "";
+    /* Required */
+    position: absolute;
+    /* Absolute */
+    top: 0;
+    /* Full height */
+    bottom: 0;
+    /* Full height */
+    width: 8vw;
+    /* Width */
+    pointer-events: none;
+    /* No interaction */
+    z-index: 2;
+    /* Above track */
+}
+
+/* Left fade */
+.projects::before {
+    left: 0;
+    /* Left */
+    background: linear-gradient(to right, var(--blue-darker), transparent);
+    /* Gradient */
+}
+
+/* Right fade */
+.projects::after {
+    right: 0;
+    /* Right */
+    background: linear-gradient(to left, var(--blue-darker), transparent);
+    /* Gradient */
+}
+
+/* Slider head: Title and controls */
+.slider-head {
+    display: flex;
+    /* Flex */
+    align-items: center;
+    /* Center */
+    justify-content: space-between;
+    /* Space */
+    gap: 12px;
+    /* Gap */
+    max-width: 1200px;
+    /* Max */
+    margin: 0 auto 10px;
+    /* Bottom margin */
+    padding: 0 clamp(16px, 4vw, 40px);
+    /* Padding */
+}
+
+/* Slider title: Styles */
+.slider-title {
+    font-size: clamp(18px, 2.6vw, 22px);
+    /* Responsive */
+    opacity: 0.95;
+    /* Slight transparency */
+    color: white;
+    /* White */
+}
+
+/* Track: Grid for cards */
+.track {
+    display: grid;
+    /* Grid */
+    grid-auto-flow: column;
+    /* Horizontal */
+    gap: 16px;
+    /* Gap */
+    grid-auto-columns: 80%;
+    /* Mobile columns */
+    overflow-x: auto;
+    /* Scroll x */
+    scroll-snap-type: x mandatory;
+    /* Snap */
+    scroll-behavior: smooth;
+    /* Smooth scroll */
+    padding: 8px clamp(16px, 8vw, 100px);
+    /* Padding */
+    max-width: 1400px;
+    /* Max */
+    margin: 0 auto;
+    /* Center */
+}
+
+/* Card: Project card styles */
+.card {
+    scroll-snap-align: center;
+    /* Snap center */
+    width: 350px;
+    /* Width */
+    background: var(--card);
+    /* Bg */
+    border: 1px solid var(--card-border);
+    /* Border */
+    border-radius: var(--radius);
+    /* Radius */
+    padding: 18px;
+    /* Padding */
+    min-height: 200px;
+    /* Minimum height of card */
+    box-shadow: var(--shadow);
+    /* Shadow */
+    display: flex;
+    /* Flex */
+    flex-direction: column;
+    /* To ensure picture is on top of text */
+    gap: 12px;
+    /* Gap */
+}
+
+/* Card image: Fits cover */
+.card img {
+    width: 100%;
+    /* Full width */
+    height: 160px;
+    /* Height */
+    object-fit: cover;
+    /* Cover */
+    border-radius: 12px;
+    /* Radius */
+    background: #0d254f;
+    /* Bg fallback */
+}
+
+/* Card h3: Title */
+.card h3 {
+    margin: 0;
+    /* No margin */
+    font-size: 18px;
+    /* Size */
+    color: var(--ink-dim);
+    /* Color */
+}
+
+/* Card p: Description */
+.card p {
+    margin: 0;
+    /* No margin */
+    color: var(--ink-dim);
+    /* Color */
+    font-size: 14px;
+    /* Size */
+}
+
+/* Card link: View button */
+.card a {
+    margin-top: auto;
+    /* Bottom */
+    align-self: start;
+    /* Left */
+    text-decoration: none;
+    /* No underline */
+    color: white;
+    /* White */
+    font-weight: 700;
+    /* Bold */
+    padding: 8px 12px;
+    /* Padding */
+    border-radius: 12px;
+    /* Radius */
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    /* Border */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
+    /* Gradient */
+}
+
+/* Card link hover: Brighter border */
+.card a:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    /* Hover */
+}
+
+/* Controls container: For buttons */
+.controls {
+    display: flex;
+    /* Flex */
+    gap: 10px;
+    /* Gap */
+}
+
+/* Control buttons: Prev/next */
+.ctrl {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    /* Border */
+    background: rgba(255, 255, 255, 0.06);
+    /* Bg */
+    color: white;
+    /* Color */
+    width: 38px;
+    /* Size */
+    height: 38px;
+    /* Size */
+    border-radius: 999px;
+    /* Round */
+    display: grid;
+    /* Grid */
+    place-items: center;
+    /* Center */
+    cursor: pointer;
+    /* Pointer */
+}
+
+/* Ctrl hover: Brighter, lift */
+.ctrl:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    /* Hover border */
+    transform: translateY(-1px);
+    /* Lift */
+}
+
+/* Ctrl active: Reset transform */
+.ctrl:active {
+    transform: none;
+    /* No lift */
+}
+
+/* Ctrl focus: Outline */
+.ctrl:focus-visible {
+    outline: 2px solid var(--accent);
+    /* Focus */
+    outline-offset: 2px;
+    /* Offset */
+}
+
+/* ABOUT PAGE */
+.about {
+    display: flex;
+    /* Makes this container a flexbox */
+    flex-direction: column;
+    /* Stack children vertically */
+    min-height: 100vh;
+    /* Ensure it fills the full viewport height */
+    padding: 20px clamp(16px, 4vw, 40px);
+    /* Responsive padding */
+    background-color: var(--blue-darker);
+    /* Dark background color */
+    position: relative;
+    /* Allows absolute-positioned children */
+}
+
+/* Top third section */
+.top-third {
+    flex: 1;
+    /* Takes up 1 part of the total flex space */
+    display: flex;
+    /* Flexbox inside this section */
+    flex-direction: column;
+    /* Stack its children vertically */
+    justify-content: center;
+    /* Center children vertically */
+    align-items: center;
+    /* Center children horizontally */
+    text-align: center;
+    /* Center-align text */
+    color: var(--ink-dim);
+    /* Dim ink color for text */
+    margin-bottom: 40px;
+}
+
+/* Join text */
+#join-text {
+    text-align: center;
+    /* Center the text */
+    color: var(--ink-dim);
+    /* Same dim color */
+    font-weight: 700;
+    /* Light/thin text weight */
+    font-size: 1.5em;
+    /* Slightly larger font */
+    margin-bottom: 40px;
+    /* Adds space below this element */
+}
+
+/* Project types container */
+.project-types {
+    display: flex;
+    /* Flexbox for layout */
+    justify-content: space-evenly;
+    /* Center items horizontally */
+    align-items: center;
+    /* Center items vertically */
+    /* gap: 20px; */
+    /* Space between items */
+    flex-wrap: wrap;
+    /* Allow items to wrap on smaller screens */
+    padding: 0 40px;
+    gap: clamp(16px, 4vw, 36px);
+}
+
+/* Individual project type */
+.project-type {
+    display: flex;
+    /* Align image + text in a row */
+    align-items: center;
+    /* Vertically center image and text */
+    gap: 8px;
+    /* Space between icon and text */
+}
+
+/* Project type image */
+.project-type img {
+    width: 30px;
+    /* Set icon width */
+    height: auto;
+    /* Maintain aspect ratio */
+    filter: grayscale(100%);
+    /* Make icon monochrome/grey */
+}
+
+/* White box section */
+.white-box {
+    flex: 2;
+    /* Takes up 2 parts of the flex space */
+    background-color: white;
+    /* White background */
+    border-top-left-radius: 100px;
+    /* Round top-left corner */
+    border-top-right-radius: 100px;
+    /* Round top-right corner */
+    padding: 60px 80px;
+    /* Inner spacing */
+    display: flex;
+    /* Flexbox layout inside */
+    gap: 50px;
+    /* Space between inner sections */
+    width: 100vw;
+    /* Full width */
+    box-sizing: border-box;
+    /* Include padding in width/height calculations */
+    margin-left: calc(50% - 50vw);
+    align-items: center;
+    margin-bottom: 0;
+}
+
+/* Left section of white box */
+.left-section {
+    flex: 1;
+    /* Takes less space compared to right section */
+    font-weight: bold;
+    /* Bold text */
+    font-size: 2em;
+    /* Bigger font for emphasis */
+    color: #111;
+    /* Black text */
+    max-width: 350px;
+}
+
+/* Right section of white box */
+.right-section {
+    flex: 1.2;
+    /* Takes more space than left section */
+    font-size: 1em;
+    /* Normal font size */
+    max-width: 600px;
+    color: #444;
+    /* Dark grey text */
+    line-height: 1.8;
+    /* Comfortable line spacing */
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* SKILLS-EXPERIENCE SECTION */
+.skills-experience {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: white;
+    margin-top: 0;
+    margin-left: calc(50% - 50vw);
+    padding: 60px 80px;
+    box-sizing: border-box;
+    width: 100vw;
+    gap: 40px;
+}
+
+.skills-list {
+    text-decoration: none;
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-height: 120px;
+    justify-content: flex-start;
+}
+
+.skills-list li {
+    font-size: 0.95em;
+    border: 1px solid var(--blue-darker);
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 16px;
+    align-items: center;
+    color: var(--blue-darker);
+    background-color: #f8f9fa;
+    /* Subtle background for contrast */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skills-list li:hover {
+    transform: translateY(-2px);
+    /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+/* Skills, Collaboration, and Soft Skills containers */
+.skills,
+.collaboration,
+.soft-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    /* Space between heading and content */
+    padding: 20px;
+    border-radius: 16px;
+    /* Matches --radius variable */
+    background-color: #f8f9fa;
+    /* Light background for distinction */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Subtle border for definition */
+}
+
+/* Headings */
+.skills-experience h2 {
+    margin-top: 0;
+    /* Remove default margin */
+    font-size: 1.8em;
+    /* Larger for prominence */
+    color: var(--blue-darker);
+    font-weight: 700;
+    text-align: left;
+}
+
+.skills h3,
+.collaboration h3,
+.soft-skills h3 {
+    font-size: 1.3em;
+    /* Consistent with main heading style */
+    color: var(--blue-darker);
+    font-weight: 600;
+    margin: 0;
+    /* Remove default margin */
+}
+
+/* Paragraphs */
+.collaboration p,
+.soft-skills p {
+    font-size: 1em;
+    color: #444;
+    /* Matches .right-section for consistency */
+    line-height: 1.6;
+    /* Improved readability */
+    margin: 0;
+    /* Remove default margin */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skills-experience {
+        padding: 0 20px 40px;
+        /* Reduced padding for mobile */
+        gap: 24px;
+        /* Tighter spacing */
     }
 
-    /* Box sizing: Ensures padding and borders are included in element sizes. */
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-        /*Includes padding/border in width/height.  */
+    .skills,
+    .collaboration,
+    .soft-skills {
+        padding: 16px;
+        /* Smaller padding on mobile */
     }
 
-    /* Font size: Allows text to scale with user settings, base 100% (usually 16px). */
-    html {
-        font-size: 100%;
-        /* Browser default font size. */
+    .skills-list {
+        gap: 16px;
+        /* Smaller gap for mobile */
+        max-height: none;
+        /* Allow natural flow on small screens */
     }
 
-    /* Media elements: Ensures images/videos fit containers without overflowing. */
-    img,
-    video {
-        max-width: 100%;
-        height: auto;
-        display: block;
+    .skills-list li {
+        font-size: 0.9em;
+        /* Slightly smaller for mobile */
+        padding: 6px 12px;
+        /* Adjust padding */
     }
 
-    /* media fits containers */
-
-
-    body {
-        background-color: var(--blue-darker);
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        line-height: 1.5;
-        overflow-x: hidden;
+    .skills-experience h2 {
+        font-size: 1.5em;
+        /* Smaller heading on mobile */
     }
 
-    /* HOME */
-    .home {
-        min-height: 100vw;
+    .skills h3,
+    .collaboration h3,
+    .soft-skills h3 {
+        font-size: 1.2em;
+        /* Adjust for mobile */
+    }
+}
+
+@media (min-width: 1000px) {
+    .skills-experience {
+        grid-template-columns: repeat(3, 1fr);
+        /* Three-column layout for larger screens */
+        gap: 32px;
+        /* Slightly larger gap */
     }
 
-    /* 2) HEADER: LEFT (LOGO-NAME), CENTER (NAV), RIGHT (CTA) */
-    #my-logo {
-        height: auto;
-        width: 20px;
+    .skills,
+    .collaboration,
+    .soft-skills {
+        padding: 24px;
+        /* More padding for desktop */
+    }
+}
+
+/* Placeholder sections: Styles for experiences, testimonials, faq, contact */
+.experiences,
+.testimonials,
+.faq,
+.contact {
+    min-height: 100vh;
+    /* Full viewport height */
+    padding: 40px clamp(16px, 4vw, 40px);
+    /* Consistent padding */
+    background-color: var(--blue-darker);
+    /* Same dark bg */
+    display: flex;
+    /* Flex for centering content */
+    flex-direction: column;
+    /* Vertical stack */
+    justify-content: center;
+    /* Center vertically */
+    align-items: center;
+    /* Center horizontally */
+    text-align: center;
+    /* Center text */
+    color: var(--ink);
+    /* Light text */
+}
+
+/* Placeholder headings */
+.experiences h2,
+.testimonials h2,
+.faq h2,
+.contact h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    /* Responsive, matching hero */
+    margin-bottom: 20px;
+    /* Space below */
+}
+
+/* Placeholder paragraphs */
+.experiences p,
+.testimonials p,
+.faq p,
+.contact p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    /* Responsive */
+    color: var(--ink-dim);
+    /* Dim color */
+}
+
+/* Media query for mobile: Adjusts layout for smaller screens */
+@media (max-width: 768px) {
+    #header-inner {
+        flex-direction: column;
+        /* Stack vertically */
+        gap: 12px;
+        /* Space */
     }
 
     .logo-name {
-        display: flex;
-        /* activate flexbox */
-        align-items: center;
-        /* vertically center items */
-        gap: 8px;
-    }
-
-    #logo-text {
-        color: var(--ink);
-        font-weight: 700;
-        font-size: 12px;
-    }
-
-
-    header {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-    }
-
-    #header-inner {
-        display: flex;
-        /* activate flexbox */
-        align-items: center;
-        /* make sure they are side by side */
-        justify-content: space-between;
-        /* let them have equal spacing between them */
-        padding: 14px clamp(16px, 4vw, 40px);
-        /* top and bottom padding */
-        max-width: 1200px;
-        /* set up a maximum width */
-        margin: 0 auto;
-    }
-
-    #nav-list {
-        display: flex;
-        list-style: none;
-        /* remove bullets */
-        gap: clamp(16px, 4vw, 36px);
-        /* space between items */
-        padding: 6px 16px;
-        margin: 0;
-        background-color: rgba(255, 255, 255, 0.05);
-        border-radius: 80px;
-    }
-
-    #nav-list li a {
-        display: flex;
-        /* maked the lind itself a flexbox */
-        align-items: center;
-        /* centers text vertically */
         justify-content: center;
-        /* centers text horizontally */
-        color: var(--ink-dim);
-        text-decoration: none;
-        /* remove underline */
-        font-weight: 600;
-        font-size: 9px;
-        padding: 6px 12px;
+        /* Center */
     }
 
-    nav {
-        display: flex;
+    .cta {
+        margin-top: 8px;
+        /* Top margin */
     }
 
-    #cta {
-        justify-content: end;
-        align-items: center;
-    }
-
-    .email-btn {
-        text-decoration: none;
-        color: var(--ink);
-        font-size: 9px;
-        appearance: none;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-        padding: 10px 14px;
-        border-radius: 999px;
-        display: inline-flex;
-        align-items: center;
-    }
-
-    /* 3) HERO */
-    #first-big-text,
-    #second-big-text {
-        font-size: clamp(1.8rem, 4vw, 3rem);
-        /* min, preferred, max */
-        font-weight: bold;
-        text-align: center;
-        color: var(--ink);
-    }
-
-    #smaller-text {
-        font-size: clamp(0.9rem, 1.0vw, 1.2rem);
-        text-align: center;
-        color: var(--ink-dim);
-    }
-
-
-    #download-button {
-        display: flex;
-        justify-content: center;
-        margin: 50px 0px 0px 0px;
-    }
-
-    #download-resume {
-        display: inline-block;
-        padding: 10px;
-        color: var(--ink);
-        background-color: var(--accent);
-        text-decoration: none;
-        align-items: center;
-        border-radius: 999px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .email-btn,
-    #download-resume {
-        font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-        padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 18px);
-    }
-
-    .hero {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: clamp(56px, 10vh, 120px) clamp(16px, 4vw, 40px) 40px;
-        text-align: center;
-    }
-
-    /* NEW: Torch-like light effect for the hero section */
-    .hero {
-        position: relative;
-        /* Allows positioning of pseudo-elements */
-        overflow: hidden;
-        /* Prevents light from spilling outside */
-    }
-
-    /* Create a torch-like beam using a pseudo-element */
-    .hero::before {
-        content: "";
-        /* Required for pseudo-elements */
+    #navbar {
+        display: none;
+        /* Hide by default on mobile */
         position: absolute;
-        top: -50px;
-        /* Start above the hero section */
-        left: 50%;
-        /* Center horizontally */
-        transform: translateX(-50%);
-        /* Adjust for centering */
-        width: 300px;
-        /* Width of the beam */
-        height: 200px;
-        /* Height of the beam */
-        background: radial-gradient(circle at center top,
-                rgba(58, 134, 255, 0.5) 0%,
-                /* --blue-glow with opacity */
-                transparent 70%
-                /* Fade to transparent */
-            );
-        /* Radial gradient for torch effect */
-        box-shadow: 0 0 50px rgba(58, 134, 255, 0.3);
-        /* Soft glow */
-        opacity: 0;
-        /* Start invisible */
-        animation: torch 2.5s ease-out forwards;
-        /* Run animation once */
-        z-index: 0;
-        /* Behind content */
-    }
-
-
-    /* Define the animation for the torch effect */
-    @keyframes torch {
-        0% {
-            opacity: 0;
-            /* Start faint */
-            transform: translateX(-50%) translateY(0);
-            /* Start higher */
-        }
-
-        100% {
-            opacity: 0.7;
-            /* Fade in */
-            transform: translateX(-50%) translateY(20px);
-            /* Move slightly downward */
-        }
-    }
-
-    /* Ensure hero content stays above the glow */
-    .hero>* {
-        position: relative;
-        /* Keep content above the ::before layer */
-        z-index: 1;
-        /* Above the glow */
-    }
-
-    /* Respect reduced motion preferences (extends your existing rule) */
-    @media (prefers-reduced-motion: reduce) {
-        .hero::before {
-            animation: none;
-            /* Disable animation */
-            opacity: 0.4;
-            /* Static faint glow */
-            transform: translateX(-50%) translateY(0);
-            /* No movement */
-        }
-    }
-
-
-    .hero h1 {
-        margin: 0 0 10px;
-        font-size: clamp(28px, 5vw, 56px);
-        line-height: 1.02;
-        letter-spacing: -0.5px;
-        text-shadow: 0 8px 40px rgba(58, 134, 255, 0.35);
-    }
-
-    .hero p {
-        margin: 0 auto;
-        max-width: 750px;
-        color: var(--ink-dim);
-        font-size: clamp(14px, 2.2vw, 18px);
-    }
-
-    @media (max-width: 768px) {
-        #header-inner {
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .logo-name {
-            justify-content: center;
-        }
-
-        .cta {
-            margin-top: 8px;
-        }
-
-        #navbar {
-            display: none;
-            /* hide menu by default */
-            position: absolute;
-            top: 70px;
-            right: 20px;
-            background: var(--blue-dark);
-            padding: 1rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        #navbar.active {
-            display: block;
-            /* show when active */
-        }
-
-        .hamburger {
-            display: block;
-            /* visible on mobile */
-        }
-    }
-
-
-    /* PROJECTS SLIDER (BOTTOM OF HOME) */
-    .projects {
-        position: relative;
-        margin: min(3vh, 40px) 0 0;
-        padding: 12px 0 38px;
-    }
-
-    /* edges fades over a track */
-    .projects::before,
-    .projects::after {
-        /* look into this again */
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 8vw;
-        pointer-events: none;
-        z-index: 2;
-    }
-
-    .projects::before {
-        /* what happens before */
-        left: 0;
-        background: linear-gradient(to right, var(--blue-darker), transparent);
-    }
-
-    .projects::after {
-        /* what happens after */
-        right: 0;
-        background: linear-gradient(to left, var(--blue-darker), transparent);
-    }
-
-    .slider-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        max-width: 1200px;
-        margin: 0 auto 10px;
-        padding: 0 clamp(16px, 4vw, 40px);
-    }
-
-    .slider-title {
-        font-size: clamp(18px, 2.6vw, 22px);
-        opacity: 0.95;
-        color: white;
-    }
-
-    .track {
-        display: grid;
-        grid-auto-flow: column;
-        gap: 16px;
-        grid-auto-columns: 80%;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        padding: 8px clamp(16px, 8vw, 100px);
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    /* wider screens show more cards */
-    @media (min-width: 700px) {
-        .track {
-            grid-auto-columns: 48%;
-        }
-    }
-
-    @media (min-width: 1000px) {
-        .track {
-            grid-auto-columns: 30%;
-        }
-    }
-
-    .card {
-        scroll-snap-align: center;
-        width: 350px;
-        background: var(--card);
-        border: 1px solid var(--card-border);
+        /* Absolute for dropdown */
+        top: 70px;
+        /* Below header */
+        right: 20px;
+        /* Right align */
+        background: var(--blue-dark);
+        /* Bg */
+        padding: 1rem;
+        /* Padding */
         border-radius: var(--radius);
-        padding: 18px;
-        min-height: 220px;
-        /* minimum height of card */
+        /* Radius */
         box-shadow: var(--shadow);
-        display: flex;
-        flex-direction: column;
-        /* to make sure the picture is on top of the text */
-        gap: 12px;
-
+        /* Shadow */
     }
 
-    .card img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 12px;
-        background: #0d254f;
+    #navbar.active {
+        display: block;
+        /* Show when active */
     }
 
-    .card h3 {
-        margin: 0;
-        font-size: 18px;
-        color: var(--ink-dim);
-    }
-
-    .card p {
-        margin: 0;
-        color: var(--ink-dim);
-        font-size: 14px;
-    }
-
-    .card a {
-        margin-top: auto;
-        align-self: start;
-        text-decoration: none;
-        color: white;
-        font-weight: 700;
-        padding: 8px 12px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
-    }
-
-    .card a:hover {
-        border-color: rgba(255, 255, 255, 0.4);
-    }
-
-    /* slider buttons */
-    .controls {
-        display: flex;
-        gap: 10px;
-    }
-
-    .ctrl {
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        background: rgba(255, 255, 255, 0.06);
-        color: white;
-        width: 38px;
-        height: 38px;
-        border-radius: 999px;
-        display: grid;
-        place-items: center;
-        cursor: pointer;
-    }
-
-    .ctrl:hover {
-        border-color: rgba(255, 255, 255, 0.4);
-        transform: translateY(-1px);
-    }
-
-    .ctrl:active {
-        transform: none;
-    }
-
-    .ctrl:focus-visible {
-        outline: 2px solid var(--accent);
-        outline-offset: 2px;
-    }
-
-    /* Respect users who prefer reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-        .track {
-            scroll-behavior: auto;
-        }
-
-        .btn,
-        .ctrl {
-            transition: none;
-        }
-    }
-
-    /* ABOUT PAGE */
-    .about {
-        display: flex;
-        /* Makes this container a flexbox */
-        flex-direction: column;
-        /* Stack children vertically */
-        min-height: 100vh;
-        /* Ensure it fills the full viewport height */
-        padding: 40px clamp(16px, 4vw, 40px);
-        /* Responsive padding: 40px top/bottom, left/right scales between 16px–40px */
-        background-color: var(--blue-darker);
-        /* Dark background color (using CSS variable) */
-        position: relative;
-        /* Allows absolute-positioned children if needed */
-    }
-
-    .top-third {
-        flex: 1;
-        /* Takes up 1 part of the total flex space (roughly 1/3) */
-        display: flex;
-        /* Flexbox inside this section */
-        flex-direction: column;
-        /* Stack its children vertically */
-        justify-content: center;
-        /* Center children vertically */
-        align-items: center;
-        /* Center children horizontally */
-        text-align: center;
-        /* Center-align text */
-        color: var(--ink-dim);
-        /* Dim ink color for text (using variable) */
-        margin-bottom: 100px;
-    }
-
-
-    #join-text {
-        text-align: center;
-        /* Center the text */
-        color: var(--ink-dim);
-        /* Same dim color */
-        font-weight: 700;
-        /* Light/thin text weight */
-        font-size: 1.5em;
-        /* Slightly larger font */
-        margin-bottom: 40px;
-        /* Adds space below this element */
+    .hamburger {
+        display: block;
+        /* Show on mobile */
     }
 
     .project-types {
-        display: flex;
-        /* Flexbox for layout */
-        justify-content: space-evenly;
-        /* Center items horizontally */
-        align-items: center;
-        /* Center items vertically */
-        gap: 20px;
-        /* Space between items */
-        flex-wrap: wrap;
-        /* Allow items to wrap on smaller screens */
-        padding: 0 40px;
-    }
-
-    .project-type {
-        display: flex;
-        /* Align image + text in a row */
-        align-items: center;
-        /* Vertically center image and text */
-        gap: 8px;
-        /* Space between icon and text */
-    }
-
-
-    .project-type img {
-        width: 30px;
-        /* Set icon width */
-        height: auto;
-        /* Maintain aspect ratio */
-        filter: grayscale(100%);
-        /* Make icon monochrome/grey */
+        flex-direction: column;
+        /* Stack vertically */
+        gap: 12px;
+        /* Smaller gap */
     }
 
     .white-box {
-        flex: 2;
-        /* Takes up 2 parts of the flex space (roughly 2/3) */
-        background-color: white;
-        /* White background */
-        border-top-left-radius: 100px;
-        /* Round top-left corner */
-        border-top-right-radius: 100px;
-        /* Round top-right corner */
-        padding: 40px 80px;
-        /* Inner spacing */
-        display: flex;
-        /* Flexbox layout inside */
-        gap: 100px;
-        /* Space between inner sections */
-        width: 100vw;
-        /* Full width */
-        box-sizing: border-box;
-        /* Include padding in width/height calculations */
-        margin-left: calc(50% - 50vw);
+        flex-direction: column;
+        /* Stack left/right */
     }
 
-    .left-section {
-        flex: 1;
-        /* Takes less space compared to right section */
-        font-weight: bold;
-        /* Bold text */
-        font-size: 1.8em;
-        /* Bigger font for emphasis */
-        color: #000;
-        /* Black text */
-    }
-
+    .left-section,
     .right-section {
-        flex: 2;
-        /* Takes more space than left section */
-        font-size: 1em;
-        /* Normal font size */
-        color: #333;
-        /* Dark grey text */
-        line-height: 1.6;
-        /* Comfortable line spacing */
+        flex: 1;
+        /* Equal when stacked */
+    }
+}
+
+/* Media for wider screens: More columns */
+@media (min-width: 700px) {
+    .track {
+        grid-auto-columns: 48%;
+        /* Two columns */
+    }
+}
+
+@media (min-width: 1000px) {
+    .track {
+        grid-auto-columns: 30%;
+        /* Three columns */
+    }
+}
+
+/* Reduced motion: Disables animations and transitions */
+@media (prefers-reduced-motion: reduce) {
+    .hero::before {
+        animation: none;
+        /* Disable animation */
+        opacity: 0.4;
+        /* Static faint glow */
+        transform: translateX(-50%) translateY(0);
+        /* No movement */
     }
 
-    @media (max-width: 768px) {
-
-        /* Apply these rules on screens smaller than 768px */
-        .project-types {
-            flex-direction: column;
-            /* Stack project types vertically */
-            gap: 12px;
-            /* Smaller spacing between items */
-        }
-
-        .white-box {
-            flex-direction: column;
-            /* Stack left and right sections vertically */
-        }
-
-        .left-section,
-        .right-section {
-            flex: 1;
-            /* Both take equal space when stacked */
-        }
+    .track {
+        scroll-behavior: auto;
+        /* No smooth scroll */
     }
+
+    .btn,
+    .ctrl {
+        transition: none;
+        /* No transitions */
+    }
+}
