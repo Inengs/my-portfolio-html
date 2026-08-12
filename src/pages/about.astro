@@ -29,44 +29,118 @@ const stats = [
         </p>
       </div>
 
-      <div class="about-grid">
-        <h2 class="section-title">What I do</h2>
+      <div class="about-sections">
 
-        <div class="about-body">
-          <p class="body-text">
-            I build quiet, reliable systems that scale. My focus is the layer
-            behind the product — ingestion pipelines, APIs, databases, and the
-            infrastructure that keeps them running.
-          </p>
-          <p class="body-text">
-            Lately that's meant a multi-tenant IoT analytics platform end to end:
-            MQTT ingestion, real-time processing, ML-driven forecasting, and the
-            Docker-based infra underneath it.
-          </p>
-
-          <div class="stats-row">
-            {stats.map((s) => (
-              <div>
-                <p class="stat-num">{s.num}</p>
-                <p class="stat-label">{s.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <div class="highlights">
-            {highlights.map((h) => (
-              <div class="highlight-item">
-                <span class="highlight-label">{h.label}</span>
-                <span class="highlight-value">{h.value}</span>
-              </div>
-            ))}
-          </div>
-
-          <div class="cta">
-            <a href="/projects" class="btn btn-primary">See my projects →</a>
-            <a href="/writing" class="btn btn-secondary">Read my writing</a>
+        <div class="about-section">
+          <h2 class="section-title">Who I am</h2>
+          <div class="about-body">
+            <p class="body-text">
+              I'm Emmanuel — most people know me as Grizz. I'm a backend and
+              infrastructure engineer who cares more about how things stay up
+              at 3am than how they look in a demo. Self-taught, stubborn about
+              understanding things from first principles, and happiest with a
+              terminal open and a problem that isn't fully scoped yet.
+            </p>
+            <p class="body-text">
+              Outside of code I'm usually reading something technical, taking
+              a system apart to see how it fails, or writing about whatever
+              broke my brain that week.
+            </p>
           </div>
         </div>
+
+        <div class="about-section">
+          <h2 class="section-title">What I do</h2>
+
+          <div class="about-body">
+            <p class="body-text">
+              I build quiet, reliable systems that scale. My focus is the layer
+              behind the product — ingestion pipelines, APIs, databases, and the
+              infrastructure that keeps them running.
+            </p>
+            <p class="body-text">
+              Lately that's meant a multi-tenant IoT analytics platform end to end:
+              MQTT ingestion, real-time processing, ML-driven forecasting, and the
+              Docker-based infra underneath it.
+            </p>
+
+            <div class="stats-row">
+              {stats.map((s) => (
+                <div>
+                  <p class="stat-num">{s.num}</p>
+                  <p class="stat-label">{s.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <div class="highlights">
+              {highlights.map((h) => (
+                <div class="highlight-item">
+                  <span class="highlight-label">{h.label}</span>
+                  <span class="highlight-value">{h.value}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="cta">
+              <a href="/projects" class="btn btn-primary">See my projects →</a>
+              <a href="/writing" class="btn btn-secondary">Read my writing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2 class="section-title">My interests</h2>
+          <div class="about-body">
+            <p class="body-text">
+              Go is my language of choice — I like how little it lets you hide
+              from yourself. Beyond that: distributed systems, cloud
+              infrastructure, and the unglamorous plumbing that makes
+              everything else possible.
+            </p>
+            <p class="body-text">
+              I also spend a fair bit of time thinking about how people learn
+              technical skills — I write under "backend bytes" and keep
+              circling back to ideas for teaching engineering concepts more
+              directly than a bootcamp usually does.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2 class="section-title">My background</h2>
+          <div class="about-body">
+            <p class="body-text">
+              I didn't start in software. Before this I worked oil and gas
+              fieldwork — wellhead repairs, pipeline and facility
+              construction. Different kind of infrastructure, same instinct:
+              build it so it doesn't fail when no one's watching.
+            </p>
+            <p class="body-text">
+              I taught myself to code, then talked my way into building
+              production systems. Everything since — GEUTech, Stoxava, the
+              projects on this site — has come from that same self-taught,
+              figure-it-out approach.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2 class="section-title">What I hope to do</h2>
+          <div class="about-body">
+            <p class="body-text">
+              Keep going deeper into infrastructure and distributed systems —
+              the kind of problems where the interesting part is invisible to
+              users. I'd like to contribute more to open source along the way.
+            </p>
+            <p class="body-text">
+              Longer term, I want to build something in edtech — a more
+              direct way to teach the concepts I had to learn the hard way,
+              on my own.
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
   </main>
@@ -75,7 +149,13 @@ const stats = [
 </Layout>
 
 <style>
-  .about-grid {
+  .about-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .about-section {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
     gap: 48px;
@@ -83,7 +163,7 @@ const stats = [
   }
 
   /* The section title is the left column, so it drops its own bottom gap */
-  .about-grid .section-title {
+  .about-section .section-title {
     margin-bottom: 0;
   }
 
@@ -154,9 +234,12 @@ const stats = [
   }
 
   @media (max-width: 900px) {
-    .about-grid {
+    .about-section {
       grid-template-columns: 1fr;
       gap: 24px;
+    }
+    .about-sections {
+      gap: 40px;
     }
   }
 
